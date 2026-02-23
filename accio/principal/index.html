@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acció | PelisXpress</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;600&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-scroll">
+
+    <nav>
+        <a href="/index.html"><div class="logo">PELIS<span>XPRESS</span></div></a>
+    </nav>
+
+    <main class="wheel-interface">
+        <section class="info-side">
+            <div class="genre-tag">CATEGORIA / ACCIÓ</div>
+            <div id="movie-info-content">
+                <h1 id="active-title">TITOL</h1>
+                <div class="meta-row">
+                    <span id="active-year">2024</span>
+                    <span id="active-imdb">0.0 IMDB</span>
+                </div>
+                <p id="active-desc">Selecciona una pel·lícula per veure'n els detalls.</p>
+            </div>
+        </section>
+
+        <section class="wheel-side">
+            <div class="container-3d">
+                <div id="wheel" class="wheel-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="wheel-logic.js"></script>
+</body>
+</html>

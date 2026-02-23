@@ -1,0 +1,7 @@
+body{
+    background: url(main.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+}

@@ -1,0 +1,141 @@
+:root {
+    --accent: #8eb9ff;
+    --bg: #050505;
+    --timing: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+body, html {
+    margin: 0; padding: 0;
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.no-scroll { overflow: hidden; height: 100vh; }
+
+/* NAVBAR */
+nav {
+    position: fixed; top: 0; width: 100%;
+    padding: 30px 8%; display: flex;
+    justify-content: space-between; align-items: center;
+    z-index: 1000;
+}
+.logo { font-weight: 600; letter-spacing: 4px; }
+.logo span { color: var(--accent); }
+
+/* LAYOUT */
+/* --- CONTENIDOR PRINCIPAL --- */
+.wheel-interface {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    padding: 0 8%;
+    position: relative;
+    background: radial-gradient(circle at 70% 50%, #1a1a1a 0%, #050505 100%);
+    overflow: hidden;
+}
+
+.info-side {
+    position: relative;
+    z-index: 5;
+    /* Evitem que aquesta secció creixi més de la seva columna */
+    max-width: 100%;
+    padding-right: 50px; /* Separació de seguretat amb la roda */
+}
+.genre-tag { font-family: 'Space Mono'; color: var(--accent); letter-spacing: 5px; font-size: 0.7rem; margin-bottom: 20px; }
+#active-title {
+    /* Mida dinàmica: es farà més gran/petit segons la pantalla */
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 100;
+
+    /* letter-spacing una mica més ajustat per a títols llargs */
+    letter-spacing: 10px;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1.1;
+
+    /* REGLES ANTI-TALL: */
+    white-space: nowrap;       /* Prohibeix saltar a la següent línia */
+    overflow: hidden;         /* Si tot i així no cap, no deforma el layout */
+    text-overflow: clip;      /* No posa punts suspensius */
+
+    /* Transició suau per quan canviem de peli */
+    transition: all 0.5s ease;
+}
+.wheel-interface {
+    grid-template-columns: 50% 50%; /* Donem exactament la meitat al text */
+    padding: 0 5% 0 8%;            /* Retallem una mica el padding dret */
+}
+.meta-row { margin: 20px 0; display: flex; gap: 20px; font-family: 'Space Mono'; opacity: 0.6; }
+#active-desc { max-width: 450px; line-height: 1.6; opacity: 0.7; }
+
+/* RODA 3D */
+.wheel-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.container-3d { transform-style: preserve-3d; width: 350px; height: 500px; }
+.wheel-container { width: 100%; height: 100%; transform-style: preserve-3d; position: relative; }
+
+.wheel-item {
+    position: absolute;
+    width: 350px; height: 500px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    transition: var(--timing);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.wheel-item:not(.active) { filter: blur(5px) grayscale(100%); opacity: 0.3; }
+.wheel-item.active {
+    filter: none; opacity: 1; border-color: var(--accent);
+    cursor: pointer;
+}
+
+.wheel-item:hover{
+    box-shadow: 0 0 80px rgba(142, 185, 255, 0.4);
+    transform: translateY(0px) translateZ(50px);
+}
+
+/* Estils per al botó d'enrere al header */
+#navbar {
+    display: flex;
+    justify-content: space-between; /* Separa logo a l'esquerra i botó a la dreta */
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.btn-back {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: white;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+.btn-back:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}

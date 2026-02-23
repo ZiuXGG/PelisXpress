@@ -1,0 +1,139 @@
+/* ==========================================================================
+   VARIABLES I CONFIGURACIÓ BASE
+   ========================================================================== */
+   :root {
+    --accent: #8eb9ff;
+    --bg: #050505;
+    --timing: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+}
+
+/* ==========================================================================
+   NAVBAR (Comú per a tota la web)
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    transition: transform 0.4s ease-in-out, background 0.4s;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    color: white;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.menu {
+    display: flex; gap: 30px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+.menu a:hover {
+    opacity: 1; color: var(--accent);
+}
+
+/* ==========================================================================
+   COMPONENTS DE BOTONS (Estil Interstellar)
+   ========================================================================== */
+.buttons {
+    display: flex; gap: 20px; align-items: center;
+}
+
+.btn {
+    padding: 16px 45px;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    background: var(--glass);
+    backdrop-filter: blur(5px);
+    transition: 0.4s;
+}
+
+.btn-play {
+    background: white; color: black; font-weight: 600; border: none;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(142,185,255,0.3);
+    border-color: var(--accent);
+}
+
+/* ==========================================================================
+   ESTILS DE LA FITXA (Pàgina Pel·lícula)
+   ========================================================================== */
+.hero-movie {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+    background-image:
+    linear-gradient(90deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.sinopsi {
+    max-width: 500px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    border-left: 1px solid var(--accent);
+    padding-left: 20px;
+    margin: 40px 0;
+}
+
+.codi-missio{
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 5px;
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+}

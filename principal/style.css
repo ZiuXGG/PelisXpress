@@ -1,0 +1,93 @@
+/* ==========================================================================
+   VARIABLES I CONFIGURACIÓ BASE
+   ========================================================================== */
+   :root {
+    --accent: #8eb9ff;
+    --bg: #050505;
+    --timing: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   ESTILS DEL GRID (Pàgina d'Inici)
+   ========================================================================== */
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: stretch;
+}
+
+.genre-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: var(--timing);
+    cursor: pointer;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.genre-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(0.3) blur(5px);
+    transition: var(--timing);
+    transform: scale(1.1);
+}
+
+.genre-name {
+    position: relative;
+    z-index: 5;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    transition: var(--timing);
+    opacity: 0.6;
+}
+
+.genre-item:hover {
+    flex: 10;
+}
+
+.genre-item:hover .genre-bg {
+    filter: grayscale(0%) brightness(0.6) blur(0px); transform: scale(1);
+}
+
+.genre-item:hover .genre-name {
+    transform: rotate(0deg); font-size: 2.5rem; opacity: 1;
+}
+
+.hero-title{
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    pointer-events: none;
+}
+
+h1{
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 100;
+    letter-spacing: 20px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
